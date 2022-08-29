@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-
+import { List } from '../data';
 const Home = () => {
   const navigation=useNavigation();
   return (

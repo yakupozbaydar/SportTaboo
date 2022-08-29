@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Game from './src/screens/Game';
+import GameScreen from './src/screens/GameScreen';
 import Home from './src/screens/Home';
 
 export default function App() {
@@ -11,8 +12,8 @@ export default function App() {
     return(
     <NavigationContainer>
       <AppStack.Navigator screenOptions={{headerShown:false, }}>
-        <AppStack.Screen name='GameScreen' component={Game}/>
         <AppStack.Screen name='HomeScreen' component={Home}/>
+        <AppStack.Screen name='GameScreen' component={GameScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   )}

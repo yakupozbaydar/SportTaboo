@@ -1,11 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { ButtonPress } from './CheckButton';
 
-
-const ResetButton = () => {
+const ResetButton:React.FC<ButtonPress> = ({onPress}) => {
   return (
-    <TouchableOpacity style={styles.check}>
+    <TouchableOpacity onPress={() => onPress} style={styles.check}>
         <Ionicons name="refresh-sharp" size={48} color="#989898" />
     </TouchableOpacity>
   )

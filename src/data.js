@@ -32,3 +32,37 @@ export const List = [
     
 
   ];
+  export const List2 = [
+    {
+      id: 1,
+      name: "Kionel Tessi",
+      tabus: ["Goat", "Barcelona", "Efsane", "Arjantin"],
+    },
+    {
+      id: 2,
+      name: "Cristiano Ronaldo",
+      tabus: ["Goat", "Barcelona", "Efsane", "Arjantin"],
+    },
+    {
+      id: 3,
+      name: "Harry Kane",
+      tabus: ["Goat", "Barcelona", "Efsane", "Arjantin"],
+    },
+    {
+      id: 4,
+      name: "HM Son",
+      tabus: ["Goat", "Barcelona", "Efsane", "Arjantin"],
+    },
+    {
+      id: 5,
+      name: "Robert Lewangoalski",
+      tabus: ["Goat", "Barcelona", "Efsane", "Arjantin"],
+    },
+    {
+      id: 6,
+      name: "Adama Traore",
+      tabus: ["Goat", "Barcelona", "Efsane", "Arjantin"],
+    },
+    
+
+  ];

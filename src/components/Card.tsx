@@ -1,14 +1,13 @@
 import { FlatList, ListView, ListViewBase, StyleSheet, Text, View } from 'react-native'
 import React, { JSXElementConstructor } from 'react'
 export type PersonProps={
-  person:{
-  id:number,
-  name:string,
-  tabus:Array<string>,
-  }
+  id:number | undefined,
+  name:string | undefined,
+  tabus:Array<string> | undefined,
+   
 }
 
-const Card:React.FC<PersonProps> = ({person}) => {
+const Card:React.FC<PersonProps> = (person) => {
   return (
     <View style={styles.container}>
       <View style={styles.nameView}>
