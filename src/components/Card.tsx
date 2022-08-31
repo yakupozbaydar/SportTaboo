@@ -4,7 +4,6 @@ export type PersonProps={
   id:number | undefined,
   name:string | undefined,
   tabus:Array<string> | undefined,
-   
 }
 
 const Card:React.FC<PersonProps> = (person) => {

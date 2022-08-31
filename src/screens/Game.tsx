@@ -1,4 +1,4 @@
-import { Animated, ListRenderItem, StyleSheet, Text, View } from 'react-native'
+import { Animated, ListRenderItem, Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import CheckButton from '../components/CheckButton'
 import XButton from '../components/XButton'
@@ -8,6 +8,9 @@ import { List, List2 } from "../data"
 import Timer from '../components/Timer'
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import { PersonProps } from '../components/Card'
+import { BaseButton, TouchableOpacity } from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native'
+import Home from './Home'
 
 type GameProps = {
     Team:string,
@@ -15,35 +18,48 @@ type GameProps = {
 }
 
 const Game:React.FC<GameProps> = ({gameList,Team}) => {
-
     const [cardList,setCardList] = useState(gameList);
     const [score,setScore] = useState(0);
     const [myindex,setMyIndex] = useState(0);
+    const [myindex2,setMyIndex2] = useState(0);
 
     const handleRight = () => {
-        setScore(score+1);
-        setMyIndex(myindex+1);
+        cardList.shift()
+        setCardList(cardList)
+        setScore(score+1)
+        setMyIndex(myindex+1)
     }
     const handleLeft = () => {
-        //set score -1
+        cardList.shift()
+        setCardList(cardList)
+        setMyIndex(myindex+1)
     }
     const handlePass = () => {
-        //set card list as current card replaced to the end of the array
+        const replaced=cardList.shift()!
+        cardList.push(replaced)
+        setCardList(cardList)
+        setMyIndex2(myindex2+1)
     }
+    if(myindex+myindex2<=6){
      return (
         <View style={styles.container}>
-            <Swipeable >
-                <Card id={cardList[myindex].id} name={cardList[myindex].name} tabus={cardList[myindex].tabus}/>
-            </Swipeable>
+                <Card id={cardList[0].id} name={cardList[0].name} tabus={cardList[0].tabus}/>
             <Timer />
+            <Text>{score}</Text>
             <View style={styles.bottomView}>
-                <ResetButton onPress={() => handlePass} />
-                <XButton onPress={() => handleLeft} />
-                <CheckButton onPress={() => handleRight} />
+                <ResetButton onPress={handlePass} />
+                <XButton onPress={handleLeft} />
+                <CheckButton onPress={handleRight}/>
             </View>
         </View>
-    )
-}
+    )}
+    else{
+        return(
+            <Home />
+        )
+    }
+     }
+
 
 export default Game
 

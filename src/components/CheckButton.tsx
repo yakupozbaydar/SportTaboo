@@ -2,12 +2,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 export type ButtonPress = {
-  onPress:() => {},
+  onPress: () => any,
 }
 
 const CheckButton:React.FC<ButtonPress> = ({onPress}) => {
   return (
-    <TouchableOpacity onPress={() => onPress} style={styles.check}>
+    <TouchableOpacity onPress={onPress} style={styles.check}>
         <Ionicons name="checkmark-sharp" size={48} color="#252525" />
     </TouchableOpacity>
   )

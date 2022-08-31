@@ -5,7 +5,7 @@ import { ButtonPress } from './CheckButton';
 
 const ResetButton:React.FC<ButtonPress> = ({onPress}) => {
   return (
-    <TouchableOpacity onPress={() => onPress} style={styles.check}>
+    <TouchableOpacity onPress={onPress} style={styles.check}>
         <Ionicons name="refresh-sharp" size={48} color="#989898" />
     </TouchableOpacity>
   )
