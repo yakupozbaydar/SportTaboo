@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     height: 500,
     marginBottom: 140,
     borderRadius: 70,
-    backgroundColor: "#252525",
+    backgroundColor: "#1B222C",
   },
   headerText: {
     borderColor: "red",

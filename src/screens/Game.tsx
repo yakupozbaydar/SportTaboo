@@ -12,53 +12,53 @@ import { BaseButton, TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import Home from './Home'
 
-type GameProps = {
-    Team:string,
-    gameList:Array<PersonProps>,
+export type GameProps = {
+    Team: string,
+    gameList: Array<PersonProps>,
 }
 
-const Game:React.FC<GameProps> = ({gameList,Team}) => {
-    const [cardList,setCardList] = useState(gameList);
-    const [score,setScore] = useState(0);
-    const [myindex,setMyIndex] = useState(0);
-    const [myindex2,setMyIndex2] = useState(0);
+const Game: React.FC<GameProps> = ({ gameList, Team }) => {
+    const [cardList, setCardList] = useState(gameList);
+    const [score, setScore] = useState(0);
+    const [myindex, setMyIndex] = useState(0);
+    const [myindex2, setMyIndex2] = useState(0);
 
     const handleRight = () => {
         cardList.shift()
         setCardList(cardList)
-        setScore(score+1)
-        setMyIndex(myindex+1)
+        setScore(score + 1)
+        setMyIndex(myindex + 1)
     }
     const handleLeft = () => {
         cardList.shift()
         setCardList(cardList)
-        setMyIndex(myindex+1)
+        setMyIndex(myindex + 1)
     }
     const handlePass = () => {
-        const replaced=cardList.shift()!
+        const replaced = cardList.shift()!
         cardList.push(replaced)
         setCardList(cardList)
-        setMyIndex2(myindex2+1)
+        setMyIndex(myindex + 1)
+        setMyIndex2(myindex2 + 1)
     }
-    if(myindex+myindex2<=6){
-     return (
-        <View style={styles.container}>
-                <Card id={cardList[0].id} name={cardList[0].name} tabus={cardList[0].tabus}/>
-            <Timer />
-            <Text>{score}</Text>
-            <View style={styles.bottomView}>
-                <ResetButton onPress={handlePass} />
-                <XButton onPress={handleLeft} />
-                <CheckButton onPress={handleRight}/>
+    if (myindex < (6 + myindex2)) {
+        return (
+            <View style={styles.container}>
+                <Card id={cardList[0].id} name={cardList[0].name} tabus={cardList[0].tabus} />
+                <Timer />
+                <Text>{score}</Text>
+                <View style={styles.bottomView}>
+                    <ResetButton onPress={handlePass} />
+                    <XButton onPress={handleLeft} />
+                    <CheckButton onPress={handleRight} />
+                </View>
             </View>
-        </View>
-    )}
-    else{
-        return(
-            <Home />
         )
     }
-     }
+    else{
+            return
+    }
+}
 
 
 export default Game
@@ -66,7 +66,7 @@ export default Game
 const styles = StyleSheet.create({
     container: {
         flexDirection: "column",
-        backgroundColor: "#AF0404",
+        backgroundColor: "#661B1C",
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
