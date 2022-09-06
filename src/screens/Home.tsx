@@ -6,7 +6,7 @@ const Home:React.FC = () => {
   const navigation=useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity  style={styles.button} onPress={() => {navigation.navigate("GameScreen")}}>
+      <TouchableOpacity  style={styles.button} onPress={() => {navigation.push("GameScreen")}}>
           <Text style={styles.text}>OYNA</Text>
       </TouchableOpacity>
     </View>

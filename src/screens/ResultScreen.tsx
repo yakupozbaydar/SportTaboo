@@ -3,7 +3,7 @@ import React from 'react'
 
 const ResultScreen = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Text>ResultScreen</Text>
     </View>
   )
@@ -11,4 +11,12 @@ const ResultScreen = () => {
 
 export default ResultScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+  backgroundColor: "#661B1C",
+  flex: 1,
+  alignItems: "center",
+  justifyContent: "center",
+  },
+
+})

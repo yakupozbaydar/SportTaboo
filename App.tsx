@@ -3,21 +3,23 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { List } from './src/data';
+import GameContextProvider from './src/GameContext';
 import Game from './src/screens/Game';
 import GameScreen from './src/screens/GameScreen';
 import Home from './src/screens/Home';
-import PlayScreen from './src/screens/PlayScreen';
 
 export default function App() {
   const AppStack =createNativeStackNavigator();
   const AppStackScreen = () => {
     return(
     <NavigationContainer>
+      <GameContextProvider>
       <AppStack.Navigator screenOptions={{headerShown:false, }}>
         <AppStack.Screen name='HomeScreen' component={Home}/>
         <AppStack.Screen name='GameScreen' component={GameScreen} />
-        <AppStack.Screen name='PlayScreen' component={PlayScreen} />
+        <AppStack.Screen name='Game' component={Game} />
       </AppStack.Navigator>
+      </GameContextProvider>
     </NavigationContainer>
   )}
 

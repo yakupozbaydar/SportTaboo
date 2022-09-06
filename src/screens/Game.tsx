@@ -1,5 +1,5 @@
 import { Animated, ListRenderItem, Pressable, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import CheckButton from '../components/CheckButton'
 import XButton from '../components/XButton'
 import ResetButton from '../components/ResetButton'
@@ -11,18 +11,30 @@ import { PersonProps } from '../components/Card'
 import { BaseButton, TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import Home from './Home'
+import GameScreen from './GameScreen'
+import { GameContext } from '../GameContext'
 
 export type GameProps = {
     Team: string,
-    gameList: Array<PersonProps>,
+    gameListId: number,
+    GameCount: number,
 }
+const Game = ({ route}) => {
+    const { gameList, Team, GameCount,indexes } = route.params;
 
-const Game: React.FC<GameProps> = ({ gameList, Team }) => {
+    const [state, setstate] = useState(GameCount);
     const [cardList, setCardList] = useState(gameList);
     const [score, setScore] = useState(0);
-    const [myindex, setMyIndex] = useState(0);
-    const [myindex2, setMyIndex2] = useState(0);
-
+    const [myindex, setMyIndex] = useState(indexes);
+    const [myindex2, setMyIndex2] = useState(indexes);
+    console.log("gameekran")
+    console.log(cardList)
+    useEffect(() => {
+        if (state == 1) {
+            setstate(state + 1)
+        }
+        else{setstate(state + 1)}
+    }, [])
     const handleRight = () => {
         cardList.shift()
         setCardList(cardList)
@@ -41,7 +53,7 @@ const Game: React.FC<GameProps> = ({ gameList, Team }) => {
         setMyIndex(myindex + 1)
         setMyIndex2(myindex2 + 1)
     }
-    if (myindex < (6 + myindex2)) {
+    if (cardList[0] != undefined) {
         return (
             <View style={styles.container}>
                 <Card id={cardList[0].id} name={cardList[0].name} tabus={cardList[0].tabus} />
@@ -55,8 +67,10 @@ const Game: React.FC<GameProps> = ({ gameList, Team }) => {
             </View>
         )
     }
-    else{
-            return
+    else {
+        return (
+            <GameScreen anotherCount={state} />
+        )
     }
 }
 
