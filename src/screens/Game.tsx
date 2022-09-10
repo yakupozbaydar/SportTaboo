@@ -12,7 +12,7 @@ import { BaseButton, TouchableOpacity } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 import Home from './Home'
 import GameScreen from './GameScreen'
-import { GameContext } from '../GameContext'
+import { GameContext} from '../GameContext'
 
 export type GameProps = {
     Team: string,
@@ -27,6 +27,7 @@ const Game = ({ route}) => {
     const [score, setScore] = useState(0);
     const [myindex, setMyIndex] = useState(indexes);
     const [myindex2, setMyIndex2] = useState(indexes);
+    const context = useContext(GameContext)
     console.log("gameekran")
     console.log(cardList)
     useEffect(() => {
@@ -69,7 +70,7 @@ const Game = ({ route}) => {
     }
     else {
         return (
-            <GameScreen anotherCount={state} />
+            <GameScreen score={score} anotherCount={state} setAnotherCount={setstate} />
         )
     }
 }

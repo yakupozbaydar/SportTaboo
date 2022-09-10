@@ -2,13 +2,16 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import { List } from '../data';
+import Timer from '../components/Timer';
 const Home:React.FC = () => {
   const navigation=useNavigation();
   return (
     <View style={styles.container}>
       <TouchableOpacity  style={styles.button} onPress={() => {navigation.push("GameScreen")}}>
           <Text style={styles.text}>OYNA</Text>
+          
       </TouchableOpacity>
+      <Timer/>
     </View>
   )
 }

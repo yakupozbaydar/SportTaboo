@@ -1,10 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { DevSettings, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React, { useContext } from 'react'
+import { GameContext } from '../GameContext'
+import ResetButton from '../components/ResetButton'
+import GameResult from '../components/GameResult'
+import { useNavigation } from '@react-navigation/native'
+import Home from './Home'
 
 const ResultScreen = () => {
+  const navigation = useNavigation()
+  const context=useContext(GameContext)
+  const takım1=context?.Score1
+  const takım2=context?.Score2
   return (
     <View style={styles.container}>
-      <Text>ResultScreen</Text>
+      <View>
+        <GameResult  teamName="Takımım" teamScore={takım1} />
+        <GameResult  teamName="Takımım" teamScore={takım2} />
+      </View>
+      <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
+        <Text>
+          Home
+        </Text>
+      </TouchableOpacity>
     </View>
   )
 }
