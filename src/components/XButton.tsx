@@ -6,7 +6,7 @@ import { ButtonPress } from './CheckButton';
 const XButton:React.FC<ButtonPress> = ({onPress}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.check}>
-        <Ionicons name="close" size={48} color="#252525" />
+        <Ionicons name="close" size={48} color="#000501" />
     </TouchableOpacity>
   )
 }

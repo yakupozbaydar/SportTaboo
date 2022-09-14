@@ -8,7 +8,7 @@ export type ButtonPress = {
 const CheckButton:React.FC<ButtonPress> = ({onPress}) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.check}>
-        <Ionicons name="checkmark-sharp" size={48} color="#252525" />
+        <Ionicons name="checkmark-sharp" size={48} color="#000501" />
     </TouchableOpacity>
   )
 }

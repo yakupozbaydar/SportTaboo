@@ -24,10 +24,10 @@ export default GameResult
 const styles = StyleSheet.create({
     container:{
         margin:30,
-        backgroundColor: "#1B222C",
-        width:300,
-        height:300,
-        borderRadius:100,
+        backgroundColor: "#000501",
+        width:250,
+        height:250,
+        borderRadius:70,
         alignItems:"center",
         alignSelf:"center",
         

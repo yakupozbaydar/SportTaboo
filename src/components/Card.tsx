@@ -1,5 +1,5 @@
-import { FlatList, ListView, ListViewBase, StyleSheet, Text, View } from 'react-native'
-import React, { JSXElementConstructor } from 'react'
+import { FlatList, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 export type PersonProps={
   id:number | undefined,
   name:string | undefined,
@@ -23,12 +23,12 @@ export default Card
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 60,
+    marginTop:10,
+    marginBottom:200,
     width: 350,
-    height: 500,
-    marginBottom: 140,
+    height: 450,
     borderRadius: 70,
-    backgroundColor: "#1B222C",
+    backgroundColor: "#BA1F33",
   },
   headerText: {
     borderColor: "red",

@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import GameResult from './src/components/GameResult';
+import Timer from './src/components/Timer';
 import { List } from './src/data';
 import GameContextProvider from './src/GameContext';
 import Game from './src/screens/Game';

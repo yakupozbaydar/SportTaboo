@@ -1,10 +1,8 @@
-import { DevSettings, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useContext } from 'react'
 import { GameContext } from '../GameContext'
-import ResetButton from '../components/ResetButton'
 import GameResult from '../components/GameResult'
 import { useNavigation } from '@react-navigation/native'
-import Home from './Home'
 
 const ResultScreen = () => {
   const navigation = useNavigation()
@@ -14,11 +12,11 @@ const ResultScreen = () => {
   return (
     <View style={styles.container}>
       <View>
-        <GameResult  teamName="Takımım" teamScore={takım1} />
-        <GameResult  teamName="Takımım" teamScore={takım2} />
+        <GameResult  teamName="Takım 1" teamScore={takım1} />
+        <GameResult  teamName="Takım 2" teamScore={takım2} />
       </View>
-      <TouchableOpacity onPress={() => navigation.navigate("HomeScreen")}>
-        <Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("HomeScreen")}>
+        <Text style={styles.textHome}>
           Home
         </Text>
       </TouchableOpacity>
@@ -30,10 +28,23 @@ export default ResultScreen
 
 const styles = StyleSheet.create({
   container:{
-  backgroundColor: "#661B1C",
+  backgroundColor: "#BA1F33",
   flex: 1,
   alignItems: "center",
   justifyContent: "center",
   },
+  button:{
+    marginTop:30,
+    width:150,
+    height:80,
+    backgroundColor:"#000501",
+    borderRadius:50,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  textHome:{
+    color:"white",
+    fontSize:18,
+  }
 
 })

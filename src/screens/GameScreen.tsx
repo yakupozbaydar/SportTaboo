@@ -1,10 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
-import Game from './Game'
-import { List, List2 } from '../data'
-import { useFocusEffect, useNavigation } from '@react-navigation/native'
+import React, { useContext, useEffect } from 'react'
+import { List } from '../data'
+import { useNavigation } from '@react-navigation/native'
 import { GameContext } from '../GameContext'
-import Home from './Home'
 import ResultScreen from './ResultScreen'
 type GameScreenProps = {
   anotherCount: number,
@@ -16,26 +14,12 @@ function getMultipleRandom(arr, num) {
 
   return shuffled.slice(0, num);
 }
-const GameScreen: React.FC<GameScreenProps> = ({ anotherCount, score, setAnotherCount }) => {
-  useFocusEffect(useCallback(
-    () => {
-      if(anotherCount != undefined){
-        return
-      }
-      else{
-
-      }
-    },
-    [],
-  ))
+const GameScreen: React.FC<GameScreenProps> = ({ anotherCount, score}) => {
   const gameList1 = getMultipleRandom(List, 6)
   const gameList2 = getMultipleRandom(List, 6)
   const context = useContext(GameContext)
   const navigation = useNavigation()
-  console.log("oyunekran")
   if (anotherCount == undefined) {
-    console.log("oyunekran1")
-
     return (
       <View style={styles.container}>
         <Text style={{ fontSize: 18 }}>
@@ -47,7 +31,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ anotherCount, score, setAnother
           GameCount: 0,
           indexes: 0
         })}>
-          <Text style={{ fontSize: 22, alignSelf: "center" }}>
+          <Text style={{ fontSize: 22, alignSelf: "center",color:"white" }}>
             BAŞLA
           </Text>
         </TouchableOpacity>
@@ -69,7 +53,7 @@ const GameScreen: React.FC<GameScreenProps> = ({ anotherCount, score, setAnother
           GameCount: anotherCount,
           indexes: 0
         })}>
-          <Text style={{ fontSize: 22, alignSelf: "center" }}>
+          <Text style={{ fontSize: 22, alignSelf: "center",color:"white" }}>
             BAŞLA
           </Text>
         </TouchableOpacity>
@@ -90,13 +74,13 @@ export default GameScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#661B1C",
+    backgroundColor: "#BA1F33",
     justifyContent: "center",
     alignItems: "center"
   },
   button: {
     justifyContent: "center",
-    backgroundColor: "#1B222C",
+    backgroundColor: "#000501",
     width: 200,
     height: 200,
     borderRadius: 50,

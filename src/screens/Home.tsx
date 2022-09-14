@@ -1,17 +1,15 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { List } from '../data';
-import Timer from '../components/Timer';
+import Countdown from '../components/Countdown';
+
 const Home:React.FC = () => {
   const navigation=useNavigation();
   return (
     <View style={styles.container}>
       <TouchableOpacity  style={styles.button} onPress={() => {navigation.push("GameScreen")}}>
           <Text style={styles.text}>OYNA</Text>
-          
       </TouchableOpacity>
-      <Timer/>
     </View>
   )
 }
@@ -23,7 +21,7 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent:"center",
     alignItems:"center",
-    backgroundColor:"#661B1C",
+    backgroundColor:"#BA1F33",
   },
   button:{
     alignItems:"center",
@@ -31,7 +29,7 @@ const styles = StyleSheet.create({
     width:175,
     height:100,
     borderRadius:50,
-    backgroundColor:"#12151C"
+    backgroundColor:"#000501"
   },
   text:{
     fontSize:18,
