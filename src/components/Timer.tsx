@@ -5,7 +5,7 @@ import Animated, { createAnimatedPropAdapter, useAnimatedProps, useDerivedValue,
 import { ReText } from 'react-native-redash'
 
 
-const { width, height } = Dimensions.get("window")
+export const { width, height } = Dimensions.get("window")
 const CIRCLE_LENGHT = 200
 const R = CIRCLE_LENGHT / (2 * Math.PI)
 const AnimatedCircle = Animated.createAnimatedComponent(Circle)

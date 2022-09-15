@@ -10,9 +10,8 @@ type CountdownProps = {
 const Countdown: React.FC<CountdownProps> = ({ time }) => {
     return (
         <View style={styles.containerCountdown}>
-            <Ionicons name='timer-outline' size={32} color="#000501">
+            <Ionicons style={styles.iconStyle} name='timer-outline' size={32} color="#000501"/>
                 <Text style={styles.textCountdown}>{time}</Text>
-            </Ionicons>  
       </View>
     )
 
@@ -24,13 +23,19 @@ const styles = StyleSheet.create({
     containerCountdown: {
         width: 130,
         height: 70,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent:"center",
+        alignItems:"center",
         backgroundColor: "#BA1F33",
         borderRadius: 30,
+        flexDirection:"row",
     },
     textCountdown: {
         fontSize: 24,
         color: "white"
+    },
+    iconStyle:{
+        justifyContent:"center",
+        alignItems:"center",
+        alignSelf:"center"
     }
 })
