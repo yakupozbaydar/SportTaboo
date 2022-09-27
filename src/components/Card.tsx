@@ -5,7 +5,6 @@ export type PersonProps={
   name:string | undefined,
   tabus:Array<string> | undefined,
 }
-import { width,height } from './Timer'
 
 const Card:React.FC<PersonProps> = (person) => {
   return (

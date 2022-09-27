@@ -44,20 +44,20 @@ const Game = ({ route }) => {
     const handleRight = () => {
         cardList.shift()
         setCardList(cardList)
-        setScore(score + 1)
-        setMyIndex(myindex + 1)
+        setScore(prev => prev+1)
+        setMyIndex(prev => prev+1)
     }
     const handleLeft = () => {
         cardList.shift()
         setCardList(cardList)
-        setMyIndex(myindex + 1)
+        setMyIndex(prev => prev+1)
     }
     const handlePass = () => {
         const replaced = cardList.shift()!
         cardList.push(replaced)
         setCardList(cardList)
-        setMyIndex(myindex + 1)
-        setMyIndex2(myindex2 + 1)
+        setMyIndex(prev => prev+1)
+        setMyIndex2(prev => prev+1)
     }
     if (cardList[0] != undefined && timeStamp == true) {
         return (
